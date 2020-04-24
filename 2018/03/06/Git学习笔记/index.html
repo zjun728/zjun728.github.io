@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ZhangJun的Blog">
 <meta property="og:description" content="前言Git的学习笔记">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-05T15:00:21.416Z">
+<meta property="og:updated_time" content="2020-04-24T15:07:14.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记">
 <meta name="twitter:description" content="前言Git的学习笔记">
@@ -170,94 +170,69 @@
 <li><p>学习教程 ：<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git教程–廖雪峰</a></p>
 </li>
 <li><h2 id="安装完git后先登录git"><a href="#安装完git后先登录git" class="headerlink" title="安装完git后先登录git"></a>安装完git后先登录git</h2></li>
-<li><h3 id="执行下面命令登录"><a href="#执行下面命令登录" class="headerlink" title="执行下面命令登录"></a>执行下面命令登录</h3></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"UserName"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
-<ul>
+<li><h3 id="执行下面命令登录"><a href="#执行下面命令登录" class="headerlink" title="执行下面命令登录"></a>执行下面命令登录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"UserName"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><h2 id="创建本地版本库"><a href="#创建本地版本库" class="headerlink" title="创建本地版本库"></a>创建本地版本库</h2></li>
 <li><p>在本地任意位置创建空文件夹，然后打开文件，在文件夹内右键打开<code>Git Bash Here</code>执行</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; git init</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>使该文件夹变成<code>git</code>可以管理的仓库（执行命令完后可发现在文件夹中出现一个隐藏的<code>.git</code>文件夹）</p>
 </li>
-<li><p>隐藏文件夹查看：打开文件夹-工具-文件夹选项-查看-隐藏文件和文件夹-显示隐藏的文件）</p>
-</li>
+<li>隐藏文件夹查看：打开文件夹-工具-文件夹选项-查看-隐藏文件和文件夹-显示隐藏的文件）</li>
 <li><p>将需要管理的文件放到刚才创建的文件夹内</p>
 </li>
-<li><h2 id="提交的所有修改放到暂存-git-add"><a href="#提交的所有修改放到暂存-git-add" class="headerlink" title="提交的所有修改放到暂存 git add"></a>提交的所有修改放到暂存 git add</h2></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add gitnote.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h2 id="将所有修改文件文件加到仓库缓存区以执行git-add-命令"><a href="#将所有修改文件文件加到仓库缓存区以执行git-add-命令" class="headerlink" title="将所有修改文件文件加到仓库缓存区以执行git add .命令"></a>将所有修改文件文件加到仓库缓存区以执行git add .命令</h2></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
-<ul>
+<li><h2 id="提交的所有修改放到暂存-git-add"><a href="#提交的所有修改放到暂存-git-add" class="headerlink" title="提交的所有修改放到暂存 git add"></a>提交的所有修改放到暂存 git add</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add gitnote.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="将所有修改文件文件加到仓库缓存区以执行git-add-命令"><a href="#将所有修改文件文件加到仓库缓存区以执行git-add-命令" class="headerlink" title="将所有修改文件文件加到仓库缓存区以执行git add .命令"></a>将所有修改文件文件加到仓库缓存区以执行git add .命令</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br></pre></td></tr></table></figure>
+</li>
 <li><h2 id="提交修改到分支-git-commit"><a href="#提交修改到分支-git-commit" class="headerlink" title="提交修改到分支 git commit"></a>提交修改到分支 git commit</h2></li>
 <li><p>一次性把暂存区的所有修改提交到分支，创建git版本库时Git为我们创建了唯一一个master分支</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"这里写的是提交的说明，可以随便写"</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><h2 id="git-status-随时查看仓库的当前状态"><a href="#git-status-随时查看仓库的当前状态" class="headerlink" title="git status 随时查看仓库的当前状态"></a>git status 随时查看仓库的当前状态</h2></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git reset HEAD &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">        modified:   gitnote.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h2 id="git-log-命令显示最近的提交日志"><a href="#git-log-命令显示最近的提交日志" class="headerlink" title="git log  命令显示最近的提交日志"></a>git log  命令显示最近的提交日志</h2>　　　</li>
+</li>
+<li><h2 id="git-status-随时查看仓库的当前状态"><a href="#git-status-随时查看仓库的当前状态" class="headerlink" title="git status 随时查看仓库的当前状态"></a>git status 随时查看仓库的当前状态</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git reset HEAD &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">        modified:   gitnote.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="git-log-命令显示最近的提交日志"><a href="#git-log-命令显示最近的提交日志" class="headerlink" title="git log  命令显示最近的提交日志"></a>git log  命令显示最近的提交日志</h2><p>　　　</p>
+</li>
 <li>它会列出所有历史记录，最近的排在最上方，显示提交对象的哈希值，作者、提交日期、和提交说明。</li>
-<li>按键盘<code>Q</code>键退出历史记录列表。
-　　　　</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$ git log </span><br><span class="line">commit <span class="number">78</span>bc094efb61461182a033f88d348a529fa1aa37 (HEAD -&gt; master)</span><br><span class="line">Author: zjun1728 &lt;<span class="number">503280155</span>@qq.com&gt;</span><br><span class="line"><span class="built_in">Date</span>:   Wed Sep <span class="number">5</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">41</span> <span class="number">2018</span> +<span class="number">0800</span></span><br><span class="line"></span><br><span class="line">    <span class="number">123</span></span><br><span class="line"></span><br><span class="line">commit <span class="number">65</span>b32e2967a92fcaa3e4be7427b730552f864574</span><br><span class="line">Author: zjun1728 &lt;<span class="number">503280155</span>@qq.com&gt;</span><br><span class="line"><span class="built_in">Date</span>:   Wed Sep <span class="number">5</span> <span class="number">15</span>:<span class="number">37</span>:<span class="number">57</span> <span class="number">2018</span> +<span class="number">0800</span></span><br><span class="line"></span><br><span class="line">    提交一个文件</span><br></pre></td></tr></table></figure>
-<ul>
+<li><p>按键盘<code>Q</code>键退出历史记录列表。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git log </span><br><span class="line">commit <span class="number">78</span>bc094efb61461182a033f88d348a529fa1aa37 (HEAD -&gt; master)</span><br><span class="line">Author: zjun1728 &lt;<span class="number">503280155</span>@qq.com&gt;</span><br><span class="line"><span class="built_in">Date</span>:   Wed Sep <span class="number">5</span> <span class="number">15</span>:<span class="number">56</span>:<span class="number">41</span> <span class="number">2018</span> +<span class="number">0800</span></span><br><span class="line"></span><br><span class="line">    <span class="number">123</span></span><br><span class="line"></span><br><span class="line">commit <span class="number">65</span>b32e2967a92fcaa3e4be7427b730552f864574</span><br><span class="line">Author: zjun1728 &lt;<span class="number">503280155</span>@qq.com&gt;</span><br><span class="line"><span class="built_in">Date</span>:   Wed Sep <span class="number">5</span> <span class="number">15</span>:<span class="number">37</span>:<span class="number">57</span> <span class="number">2018</span> +<span class="number">0800</span></span><br><span class="line"></span><br><span class="line">    提交一个文件</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>commit后面的一串字符是每次提交的commit-id。</p>
 </li>
 <li><p>简化日志输出信息<br>输出完整的commit-id</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty=oneline</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出前几位commit-id</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty=oneline</span><br></pre></td></tr></table></figure>
-<ul>
-<li>输出前几位commit-id</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
 <ul>
 <li><h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2></li>
-<li><p>已提交时（commit后，但未推送到远程库）</p>
-</li>
+<li>已提交时（commit后，但未推送到远程库）</li>
 <li><p>git reset –hard HEAD^</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard HEAD^</span><br><span class="line">HEAD is now at <span class="number">65</span>b32e2 提交一个文件</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>现在显示当前的版本变为<code>commit</code>为 <code>65b32e2967a92fcaa3e4be7427b730552f864574</code>的版本即上一个版本这时打开文件可<br>发现文件内的内容变为上一次修改之前的内容</p>
 </li>
 <li><p>上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，往后的某一个版本则写成<code>HEAD~100</code><br>若撤销回退即回到未回退之前的状态</p>
 </li>
-<li><h4 id="回退到指定的版本号"><a href="#回退到指定的版本号" class="headerlink" title="回退到指定的版本号"></a>回退到指定的版本号</h4></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard commit_id</span><br></pre></td></tr></table></figure>
-<ul>
-<li>找到未回退之前的<code>commit-id</code>。即<code>78bc094efb614</code>  （版本号不用写全，前5-8位就行，太少不能确定）</li>
-</ul>
+<li><h4 id="回退到指定的版本号"><a href="#回退到指定的版本号" class="headerlink" title="回退到指定的版本号"></a>回退到指定的版本号</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard commit_id</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找到未回退之前的<code>commit-id</code>。即<code>78bc094efb614</code>  （版本号不用写全，前5-8位就行，太少不能确定）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard <span class="number">78</span>bc0</span><br><span class="line">	HEAD is now at <span class="number">78</span>bc094 <span class="number">123</span></span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>撤销成功</p>
 </li>
 <li><p>查看commit id(版本号)的方法是执行git reflog命令（（历史命令查看），git reflog记录你的每一次命令）</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br><span class="line"><span class="number">0</span>bc4ae8 (HEAD -&gt; master) HEAD@&#123;<span class="number">0</span>&#125;: commit: 修改文本内容</span><br><span class="line"><span class="number">78</span>bc094 HEAD@&#123;<span class="number">1</span>&#125;: reset: moving to <span class="number">78</span>bc0</span><br><span class="line"><span class="number">65</span>b32e2 HEAD@&#123;<span class="number">2</span>&#125;: reset: moving to <span class="number">65</span>b32</span><br><span class="line"><span class="number">65</span>b32e2 HEAD@&#123;<span class="number">3</span>&#125;: reset: moving to HEAD^</span><br><span class="line"><span class="number">78</span>bc094 HEAD@&#123;<span class="number">4</span>&#125;: commit: <span class="number">123</span></span><br><span class="line"><span class="number">65</span>b32e2 HEAD@&#123;<span class="number">5</span>&#125;: commit (initial): 提交一个文件</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>commit: 修改文本内容，是执行git commit -m “”命令的说明，为回退提供参照，</p>
 </li>
 <li><p>命令行窗口未关闭时可以执行<code>git log</code> 命令查看</p>
 </li>
 <li><p><strong>未提交时（commit前）当未提交时可以使用git checkout – file 撤销修改,如:</strong> </p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- gitnote.txt</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><h5 id="包括两种情况"><a href="#包括两种情况" class="headerlink" title="包括两种情况"></a>包括两种情况</h5></li>
 <li><ul>
 <li>一种是gitnote.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态（也可以手动将文件改回原来状态）；</li>
@@ -272,21 +247,17 @@
 <li>把gitnote.txt文件在工作区的修改全部撤销，让这个文件回到最近一次git commit或git add时的状态。</li>
 </ul>
 <ul>
-<li><h2 id="删除文件-git-rm-或者手动在文件夹中删除"><a href="#删除文件-git-rm-或者手动在文件夹中删除" class="headerlink" title="删除文件 git rm (或者手动在文件夹中删除)"></a>删除文件 git rm (或者手动在文件夹中删除)</h2></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm gitnote.txt</span><br></pre></td></tr></table></figure>
-<ul>
+<li><h2 id="删除文件-git-rm-或者手动在文件夹中删除"><a href="#删除文件-git-rm-或者手动在文件夹中删除" class="headerlink" title="删除文件 git rm (或者手动在文件夹中删除)"></a>删除文件 git rm (或者手动在文件夹中删除)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm gitnote.txt</span><br></pre></td></tr></table></figure>
+</li>
 <li><ul>
 <li>若确定删除，则执行<code>git commit</code>命令提交删除</li>
 </ul>
 </li>
 <li><ul>
-<li>若是误删，则执行 git checkout –file 撤销刚才的删除行为（只能恢复文件到最新版本）</li>
-</ul>
+<li>若是误删，则执行 git checkout –file 撤销刚才的删除行为（只能恢复文件到最新版本）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- gitnote_1.txt</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- gitnote_1.txt</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>##远程仓库</p>
 </li>
 <li><p>本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：</p>
@@ -294,10 +265,8 @@
 <li><p><strong>创建SSH Key</strong></p>
 </li>
 <li><p>在用户（Users）目录下（或users子目录下）有.ssh目录 ,且存在id_rsa和id_rsa.pub文件，则无需创建，没有则执行</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p><a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a> 输入自己的邮箱地址 一直回车使用默认值</p>
 </li>
 <li><p>然后登陆GitHub，打开“Account settings”，“SSH Keys”页面：</p>
@@ -314,30 +283,25 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@github.com:zjun728/GitNote.git</span><br></pre></td></tr></table></figure>
 <ul>
-<li>我们本地已有了一个仓库，下面需要将本地库与远程库关联执行：</li>
-</ul>
+<li><p>我们本地已有了一个仓库，下面需要将本地库与远程库关联执行：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:zjun728/GitNote.git</span><br></pre></td></tr></table></figure>
-<ul>
-<li>若提示fatal: remote origin already exists 则执行</li>
-</ul>
+</li>
+<li><p>若提示fatal: remote origin already exists 则执行</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br></pre></td></tr></table></figure>
-<ul>
-<li>然后再执行</li>
-</ul>
+</li>
+<li><p>然后再执行</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:zjun728/GitNote.git</span><br></pre></td></tr></table></figure>
-<ul>
-<li>再执行</li>
-</ul>
+</li>
+<li><p>再执行</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>第一次在master分支推送master分支时，加上了-u参数 Git将本地master分支与远程分支关联起来，<br>并将本地分支内容推送到远程master分支上去 以后可简化为  git push </p>
 </li>
 <li><p>如果我们在当前分支推送其他本地分支，需要指定本地分支：</p>
-</li>
-</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; git push origin dev</span><br></pre></td></tr></table></figure>
-<ul>
-<li>（初次提交本地分支（master 或者dev等），例如git push origin master操作，并不会定义当前本地分支的远程分支（upstream），<br>我们可以通过git push –set-upstream origin master，关联本地master分支的远程分支（upstream），</li>
+</li>
+<li><p>（初次提交本地分支（master 或者dev等），例如git push origin master操作，并不会定义当前本地分支的远程分支（upstream），<br>我们可以通过git push –set-upstream origin master，关联本地master分支的远程分支（upstream），</p>
+</li>
 <li>另一个更为简洁的方式是初次push时，加入-u参数，</li>
 <li>例如git push -u origin master，这个操作在push的同时会指定当前分支的远程分支（upstream）。</li>
 <li><p><a href="https://segmentfault.com/a/1190000002783245" target="_blank" rel="noopener">本段参考</a>）</p>
@@ -346,81 +310,62 @@
 <li><p>（在dev分支上执行 add commit push 时只是将当前分支dev的修改内容推送到远程库，其他分支保持原状（不推送到远程库）<br>同理，在master分支上执行add commit push操作时也只是执行当前分支的更改其他分支不变）</p>
 </li>
 <li><p><strong> 创建dev 分支</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br></pre></td></tr></table></figure>
 <ul>
-<li><h4 id="切换到分支"><a href="#切换到分支" class="headerlink" title="切换到分支"></a>切换到分支</h4></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
-<ul>
+<li><h4 id="切换到分支"><a href="#切换到分支" class="headerlink" title="切换到分支"></a>切换到分支</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout dev</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>切换到<code>dev</code> 分支，在<code>dev</code> 分支有一些操作后切换到<code>master</code>分支时如果在切换<code>master</code>之前在dev分支上有了一些修改没有</p>
 <p><code>add</code> 或者 <code>add</code> 了，没有 <code>commit</code> 这时候切换到<code>master</code>分支时在<code>master</code>分支上是可以看到在<code>dev</code>分支上修改的内容的只</p>
 <p>有在dev分支上修改完后，<code>add</code> 并且<code>commit</code> 后才会在<code>master</code>分支上隐藏修改在master分支上是看不到的， 只有将dev分支</p>
 <p>合并到master分支后才会看到在dev分支上的修改.</p>
 </li>
-<li><h4 id="创建-切换分支（组合命令）"><a href="#创建-切换分支（组合命令）" class="headerlink" title="创建+切换分支（组合命令）"></a>创建+切换分支（组合命令）</h4></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="查看本地当前分支（当前分支前面会标一个-号。）"><a href="#查看本地当前分支（当前分支前面会标一个-号。）" class="headerlink" title="查看本地当前分支（当前分支前面会标一个*号。）"></a>查看本地当前分支（当前分支前面会标一个*号。）</h4></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="查看远程分支（红色标记）"><a href="#查看远程分支（红色标记）" class="headerlink" title="查看远程分支（红色标记）"></a>查看远程分支（红色标记）</h4></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -ｒ</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong><code>dev</code>分支的工作成果合并到<code>master</code>分支上 （合并之前先<code>add</code> 、<code>commit</code>）</strong></li>
-</ul>
+<li><h4 id="创建-切换分支（组合命令）"><a href="#创建-切换分支（组合命令）" class="headerlink" title="创建+切换分支（组合命令）"></a>创建+切换分支（组合命令）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="查看本地当前分支（当前分支前面会标一个-号。）"><a href="#查看本地当前分支（当前分支前面会标一个-号。）" class="headerlink" title="查看本地当前分支（当前分支前面会标一个*号。）"></a>查看本地当前分支（当前分支前面会标一个*号。）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="查看远程分支（红色标记）"><a href="#查看远程分支（红色标记）" class="headerlink" title="查看远程分支（红色标记）"></a>查看远程分支（红色标记）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -ｒ</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong><code>dev</code>分支的工作成果合并到<code>master</code>分支上 （合并之前先<code>add</code> 、<code>commit</code>）</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>用于合并指定分支到当前分支 所以当我们要合并dev分支到master上时要将分支切换到master<br><code>git log</code>可以看到分支的合并情况</p>
 </li>
 <li><p><strong>合并完成后，就可以放心地删除本地 <code>dev</code> 分支了</strong>：</p>
-</li>
-</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d dev</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的-D参数命令："><a href="#未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的-D参数命令：" class="headerlink" title="未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的-D参数命令："></a>未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的<code>-D</code>参数命令：</h4></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -D dev</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
+<li><h4 id="未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的-D参数命令："><a href="#未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的-D参数命令：" class="headerlink" title="未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的-D参数命令："></a>未合并时该命令是不能执行的，如果要强制删除未合并的分支，需要执行大写的<code>-D</code>参数命令：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -D dev</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>如果我们删除了本地的分支<code>dev</code>而没有删除远程分支<code>dev</code>，这时我们再创建一个和删除分支名称一样的本地分支<code>dev</code><br>然后 <code>add</code>、<code>commit</code>、<code>push</code>（这时提示我们是第一次提交，需要与远程分支关联）如果我们默认推送到远程分支<code>dev</code>,<br>这时推送到的是原来的那个没有删除的远程分支<code>dev</code>上去的.</p>
 </li>
+</ul>
+<ul>
 <li><p><strong>删除远程服务器（github）库的分支</strong></p>
-</li>
-</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin -d dev</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>dev 分支要完全合并到master分支上（即在dev 分支上commit后再合并到master）才能执行该操作</strong></li>
-</ul>
+</li>
+<li><p><strong>dev 分支要完全合并到master分支上（即在dev 分支上commit后再合并到master）才能执行该操作</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$  git branch -d dev</span><br><span class="line">warning: not deleting branch <span class="string">'dev'</span> that is not yet merged to</span><br><span class="line">         <span class="string">'refs/remotes/origin/dev'</span>, even though it is merged to HEAD.</span><br><span class="line">error: The branch <span class="string">'dev'</span> is not fully merged.</span><br><span class="line">If you are sure you want to <span class="keyword">delete</span> it, run <span class="string">'git branch -D dev'</span>.</span><br></pre></td></tr></table></figure>
-<ul>
-<li>当在<code>dev</code>分支上删除文件<code>gitnote_3.txt</code> 而没有<code>add</code> ，这时切换到<code>master</code>分支上会发现刚才的操作依然存在，在<br><code>master</code>分支上<code>add</code>、<code>commit</code> 此时转到<code>dev</code>分支上发现刚才删除而没有<code>add</code>的操作没有了（<code>gitnote_3.txt</code>文件在<code>dev</code>分支上又出现了）<strong>这时查看状态发现，没有需要添加到缓存区或提交的东西.</strong><br>如下显示：</li>
-</ul>
+</li>
+<li><p>当在<code>dev</code>分支上删除文件<code>gitnote_3.txt</code> 而没有<code>add</code> ，这时切换到<code>master</code>分支上会发现刚才的操作依然存在，在<br><code>master</code>分支上<code>add</code>、<code>commit</code> 此时转到<code>dev</code>分支上发现刚才删除而没有<code>add</code>的操作没有了（<code>gitnote_3.txt</code>文件在<code>dev</code>分支上又出现了）<strong>这时查看状态发现，没有需要添加到缓存区或提交的东西.</strong><br>如下显示：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch dev</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果在<code>dev</code>分支上修改文件<code>gitnote.txt</code> 并且<code>add</code>了，这时再转到<code>master</code>分支上这时查看状态发现</li>
-</ul>
+</li>
+<li><p>如果在<code>dev</code>分支上修改文件<code>gitnote.txt</code> 并且<code>add</code>了，这时再转到<code>master</code>分支上这时查看状态发现</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is ahead <span class="keyword">of</span> <span class="string">'origin/master'</span> by <span class="number">3</span> commits.</span><br><span class="line">  (use <span class="string">"git push"</span> to publish your local commits)</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git reset HEAD &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">        modified:   gitnote.txt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>文件依然存在缓存区，查看刚才修改的<code>gitnote.txt</code>文件发现，修改的东西保持不变，这时<code>commit</code> 然后切换到<code>dev</code>会发现<br>刚才修改的东西没有了，并且查看状态发现，没有任何需要缓存或提交的东西</li>
-</ul>
+</li>
+<li><p>文件依然存在缓存区，查看刚才修改的<code>gitnote.txt</code>文件发现，修改的东西保持不变，这时<code>commit</code> 然后切换到<code>dev</code>会发现<br>刚才修改的东西没有了，并且查看状态发现，没有任何需要缓存或提交的东西</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch dev</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
-<ul>
-<li>__推送分支dev 到远程库 <em>git push</em><br>第一次推送到远程库时需执行</li>
-</ul>
+</li>
+<li><p>__推送分支dev 到远程库 <em>git push</em><br>第一次推送到远程库时需执行</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin dev</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><h4 id="分支冲突解决"><a href="#分支冲突解决" class="headerlink" title="分支冲突解决"></a>分支冲突解决</h4><p>当两个分支修改同一个文件的同一处内容（已<code>commit</code>），修改的内容不一样时，如当我们在分支<code>dev</code>修改<code>gitnote.txt</code>文件第一行内容,<br><code>add</code>、<code>commit</code>后再切换到<code>master</code>分支，同样修改 <code>gitnote.txt</code>文件第一行内容（两次修改的结果不一样）<code>add</code>、 <code>commit</code> 后 将<code>dev</code> 分支合并到<code>master</code><br>分支时会发生冲突，这个时候我们需要手动解决冲突后再合并<br>冲突时我们可以 <code>git status</code> 查看冲突内容</p>
 </li>
 <li><p><strong>如果我们其他分支master有临时任务，且当前分支dev任务尚未完成时，我们可以执行  </strong>git stash__ 将当前工作存储起来__</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash</span><br></pre></td></tr></table></figure>
-<ul>
-<li>这时用<strong><code>git status</code></strong>查看工作区显示是干净的<br><strong><code>git stash list</code></strong> 可以查看存储状态</li>
+</li>
+<li><p>这时用<strong><code>git status</code></strong>查看工作区显示是干净的<br><strong><code>git stash list</code></strong> 可以查看存储状态</p>
+</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash list</span><br></pre></td></tr></table></figure>
 <p>如果临时任务完成继续当前分支dev工作时<br>需要将未完成工作恢复一下，有两个办法：</p>
@@ -433,63 +378,51 @@
 <li><strong>另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了</strong>。</li>
 </ul>
 </li>
-<li><h4 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h4></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br></pre></td></tr></table></figure>
-<ul>
-<li>####查看更详细的远程库信息：</li>
-</ul>
+<li><h4 id="查看远程库信息"><a href="#查看远程库信息" class="headerlink" title="查看远程库信息"></a>查看远程库信息</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>####查看更详细的远程库信息：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。<br>打标签： 切换到需要打标签的分支执行git tag <name>命令：</name></li>
-</ul>
+</li>
+<li><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。<br>打标签： 切换到需要打标签的分支执行git tag <name>命令：</name></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag v1<span class="number">.0</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>git tag查看所有标签</strong>：</li>
-</ul>
+</li>
+<li><p><strong>git tag查看所有标签</strong>：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p><strong>默认标签是打在最新提交的commit上的，如果我们需要在特定的commit上打标签找到历史提交的commit id，然后打上就可以了：</strong></p>
 </li>
 <li><p>历史commit-id查看方法</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>如果我们需要在某一次 commit 处打标签</strong></li>
-</ul>
+</li>
+<li><p><strong>如果我们需要在某一次 commit 处打标签</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag v0<span class="number">.9</span> f52c633</span><br></pre></td></tr></table></figure>
-<ul>
+</li>
 <li><p>标签不是按时间顺序列出，而是按字母排序的。</p>
 </li>
 <li><p><strong>可以用git show tagname查看标签信息</strong>。</p>
-</li>
-</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git show v0<span class="number">.9</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</strong></li>
-</ul>
+</li>
+<li><p><strong>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -a v0<span class="number">.1</span> -m <span class="string">"version 0.1 released"</span> <span class="number">1094</span>adb</span><br></pre></td></tr></table></figure>
 <ul>
-<li>__删除标签</li>
+<li>__删除标签<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -d v0<span class="number">.1</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -d v0<span class="number">.1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>如果要推送某个标签到远程，使用命令git push origin tagname：</strong></li>
-</ul>
+</li>
+<li><p><strong>如果要推送某个标签到远程，使用命令git push origin tagname：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin v1<span class="number">.0</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>一次性推送全部尚未推送到远程的本地标签</strong>：</li>
-</ul>
+</li>
+<li><p><strong>一次性推送全部尚未推送到远程的本地标签</strong>：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin --tags</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>删除远程标签，先从本地删除：git tag -d tagname</strong></li>
-</ul>
+</li>
+<li><p><strong>删除远程标签，先从本地删除：git tag -d tagname</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -d v0<span class="number">.9</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>然后，从远程删除：git push origin :refs/tags/tagname。</strong></li>
-</ul>
+</li>
+<li><p><strong>然后，从远程删除：git push origin :refs/tags/tagname。</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin :refs/tags/v0<span class="number">.9</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
 
       
