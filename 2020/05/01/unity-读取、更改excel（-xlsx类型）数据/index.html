@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/7 | ZhangJun的Blog</title>
+  <title>unity 读取、更改excel（.xlsx类型）数据 | ZhangJun的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ZhangJun的Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/07/index.html">
+  <meta name="description" content="前言unity 读取、更改excel（.xlsx类型）数据">
+<meta name="keywords" content="unity,xlsx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unity 读取、更改excel（.xlsx类型）数据">
+<meta property="og:url" content="http://yoursite.com/2020/05/01/unity-读取、更改excel（-xlsx类型）数据/index.html">
 <meta property="og:site_name" content="ZhangJun的Blog">
+<meta property="og:description" content="前言unity 读取、更改excel（.xlsx类型）数据">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-01T12:11:03.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhangJun的Blog">
+<meta name="twitter:title" content="unity 读取、更改excel（.xlsx类型）数据">
+<meta name="twitter:description" content="前言unity 读取、更改excel（.xlsx类型）数据">
   
     <link rel="alternative" href="/atom.xml" title="ZhangJun的Blog" type="application/atom+xml">
   
@@ -139,36 +144,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-unity-读取、更改excel（-xlsx类型）数据" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/15/在unity中动态为button添加带参数的点击事件/" class="archive-article-date">
-  	<time datetime="2017-07-15T02:20:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/15/在unity中动态为button添加带参数的点击事件/">在unity中动态为button添加带参数的点击事件</a>
+    <h1 class="article-title" itemprop="name">
+      unity 读取、更改excel（.xlsx类型）数据
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/01/unity-读取、更改excel（-xlsx类型）数据/" class="archive-article-date">
+  	<time datetime="2020-05-01T12:09:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>unity 读取、更改excel（.xlsx类型）数据</p>
+<a id="more"></a>
+<h2 id="一、读取excel"><a href="#一、读取excel" class="headerlink" title="一、读取excel"></a>一、读取excel</h2><p>需要引入Excel.dll 和ICSharpCode.SharpZipLib库文件。<br>dll下载地址：<br><a href="https://pan.baidu.com/s/1mCt0QAVGephpASBFU4uBKg" target="_blank" rel="noopener">https://pan.baidu.com/s/1mCt0QAVGephpASBFU4uBKg</a>    提取码：p6x3 </p>
+<p>引入命名空间：using Excel;<br>代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">    ///返回数据的集合 </span><br><span class="line">    ///数据的格式为 每一行为一条数据</span><br><span class="line">    ///例：赵一|党员|1年|赵一.png| </span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">    public List&lt;string&gt; LoadData()</span><br><span class="line">    &#123;</span><br><span class="line">        // StreamingAssets目录下的  党员信息.xlsx文件的路径：Application.streamingAssetsPath + &quot;/党员信息.xlsx&quot; </span><br><span class="line">        FileStream fileStream = File.Open(Application.streamingAssetsPath + &quot;/党员信息.xlsx&quot;, FileMode.Open, FileAccess.Read);</span><br><span class="line">        IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);</span><br><span class="line">        // 表格数据全部读取到result里(引入：DataSet（</span><br><span class="line">using System.Data;） 需引入 System.Data.dll到项目中去)</span><br><span class="line">        DataSet result = excelDataReader.AsDataSet();</span><br><span class="line"></span><br><span class="line">        // 获取表格有多少列 </span><br><span class="line">        int columns = result.Tables[0].Columns.Count;</span><br><span class="line">        // 获取表格有多少行 </span><br><span class="line">        int rows = result.Tables[0].Rows.Count;</span><br><span class="line">        // 根据行列依次打印表格中的每个数据 </span><br><span class="line">        </span><br><span class="line">        List&lt;string&gt; excelDta = new List&lt;string&gt;();</span><br><span class="line"></span><br><span class="line">        //第一行为表头，不读取</span><br><span class="line">        for (int i = 1; i &lt; rows; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            value = null;</span><br><span class="line">            all = null;</span><br><span class="line">            for (int j = 0; j &lt; columns; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                // 获取表格中指定行指定列的数据 </span><br><span class="line">                value = result.Tables[0].Rows[i][j].ToString();</span><br><span class="line">                if (value == &quot;&quot;)</span><br><span class="line">                &#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line">                all = all + value + &quot;|&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            if (all != null)</span><br><span class="line">            &#123;</span><br><span class="line">                print(all);</span><br><span class="line">                excelDta.Add(all);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return excelDta;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、写入excel数据"><a href="#二、写入excel数据" class="headerlink" title="二、写入excel数据"></a>二、写入excel数据</h2><p>需要引入 EPPlus.dll  下载地址同上<br>引入命名空间：<br>using OfficeOpenXml;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">/// &lt;summary&gt;</span><br><span class="line">    /// list内容格式</span><br><span class="line">    /// 赵一|党员|1年|赵一.png| </span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;param name=&quot;newList&quot;&gt;&lt;/param&gt;</span><br><span class="line">    public void WriteExcel(List&lt;string&gt; newList)</span><br><span class="line">    &#123;</span><br><span class="line">        //自定义excel的路径</span><br><span class="line"></span><br><span class="line">        string path = Application.streamingAssetsPath + &quot;/党员信息.xlsx&quot;;</span><br><span class="line">       // print(Application.dataPath);</span><br><span class="line"></span><br><span class="line">        FileInfo newFile = new FileInfo(path);</span><br><span class="line"></span><br><span class="line">        if (newFile.Exists)</span><br><span class="line">        &#123;</span><br><span class="line">            //创建一个新的excel文件</span><br><span class="line"></span><br><span class="line">            newFile.Delete();</span><br><span class="line"></span><br><span class="line">            newFile = new FileInfo(path);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //通过ExcelPackage打开文件</span><br><span class="line">        using (ExcelPackage package = new ExcelPackage(newFile))</span><br><span class="line">        &#123;</span><br><span class="line">            //在excel空文件添加新sheet</span><br><span class="line"></span><br><span class="line">            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(&quot;message&quot;);</span><br><span class="line">            //添加列名</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 1].Value = &quot;姓名&quot;;</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 2].Value = &quot;职务&quot;;</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 3].Value = &quot;党龄&quot;;</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 4].Value = &quot;图片名&quot;;</span><br><span class="line">            </span><br><span class="line">            for (int i = 0; i &lt; newList.Count; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                string[] messages = newList[i].Split(&apos;|&apos;); //赵一|党员|1年|赵一.png| </span><br><span class="line">                string itemName = messages[0];</span><br><span class="line">                string itemWork = messages[1];</span><br><span class="line">                string itemYear = messages[2];</span><br><span class="line">                string imageName = messages[3];</span><br><span class="line">                //添加一行数据</span><br><span class="line"></span><br><span class="line">                int num = i + 2;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;A&quot;+ num].Value = itemName;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;B&quot; + num].Value = itemWork;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;C&quot; + num].Value = itemYear;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;D&quot; + num].Value = imageName;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            //保存excel</span><br><span class="line">            package.Save();</span><br><span class="line">            print(&quot;重写完成&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>为避免打包exe后读取不到excel数据，须将<br>Unity\Editor\Data\Mono\lib\mono\unity目录下的一系列i18n相关dll导入项目Plugins文件夹中。<br>完整代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line">using System.IO;</span><br><span class="line">using Excel;</span><br><span class="line">using System.Data;</span><br><span class="line">using OfficeOpenXml;</span><br><span class="line">public class LoadExcelData : MonoBehaviour &#123;</span><br><span class="line">    public static LoadExcelData instance;</span><br><span class="line">   </span><br><span class="line">    string value;</span><br><span class="line">    string all;</span><br><span class="line"></span><br><span class="line">    private void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        instance = this;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    private void Start()</span><br><span class="line">    &#123;</span><br><span class="line">      //  LoadData();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    ///返回数据的集合 </span><br><span class="line">    ///数据的格式为 每一行为一条数据</span><br><span class="line">    ///例：赵一|党员|1年|赵一.png| </span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;returns&gt;&lt;/returns&gt;</span><br><span class="line">    public List&lt;string&gt; LoadData()</span><br><span class="line">    &#123;</span><br><span class="line">        // StreamingAssets目录下的  党员信息.xlsx文件的路径：Application.streamingAssetsPath + &quot;/党员信息.xlsx&quot; </span><br><span class="line">        FileStream fileStream = File.Open(Application.streamingAssetsPath + &quot;/党员信息.xlsx&quot;, FileMode.Open, FileAccess.Read);</span><br><span class="line">        IExcelDataReader excelDataReader = ExcelReaderFactory.CreateOpenXmlReader(fileStream);</span><br><span class="line">        // 表格数据全部读取到result里</span><br><span class="line">        DataSet result = excelDataReader.AsDataSet();</span><br><span class="line"></span><br><span class="line">        // 获取表格有多少列 </span><br><span class="line">        int columns = result.Tables[0].Columns.Count;</span><br><span class="line">        // 获取表格有多少行 </span><br><span class="line">        int rows = result.Tables[0].Rows.Count;</span><br><span class="line">        // 根据行列依次打印表格中的每个数据 </span><br><span class="line">        </span><br><span class="line">        List&lt;string&gt; excelDta = new List&lt;string&gt;();</span><br><span class="line"></span><br><span class="line">        //第一行为表头，不读取</span><br><span class="line">        for (int i = 1; i &lt; rows; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            value = null;</span><br><span class="line">            all = null;</span><br><span class="line">            for (int j = 0; j &lt; columns; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                // 获取表格中指定行指定列的数据 </span><br><span class="line">                value = result.Tables[0].Rows[i][j].ToString();</span><br><span class="line">                if (value == &quot;&quot;)</span><br><span class="line">                &#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line">                all = all + value + &quot;|&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">            if (all != null)</span><br><span class="line">            &#123;</span><br><span class="line">                print(all);</span><br><span class="line">                excelDta.Add(all);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return excelDta;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /// &lt;summary&gt;</span><br><span class="line">    /// list内容格式</span><br><span class="line">    /// 赵一|党员|1年|赵一.png| </span><br><span class="line">    /// &lt;/summary&gt;</span><br><span class="line">    /// &lt;param name=&quot;newList&quot;&gt;&lt;/param&gt;</span><br><span class="line">    public void WriteExcel(List&lt;string&gt; newList)</span><br><span class="line">    &#123;</span><br><span class="line">        //自定义excel的路径</span><br><span class="line"></span><br><span class="line">        string path = Application.streamingAssetsPath + &quot;/党员信息.xlsx&quot;;</span><br><span class="line">       // print(Application.dataPath);</span><br><span class="line"></span><br><span class="line">        FileInfo newFile = new FileInfo(path);</span><br><span class="line"></span><br><span class="line">        if (newFile.Exists)</span><br><span class="line">        &#123;</span><br><span class="line">            //创建一个新的excel文件</span><br><span class="line"></span><br><span class="line">            newFile.Delete();</span><br><span class="line"></span><br><span class="line">            newFile = new FileInfo(path);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        //通过ExcelPackage打开文件</span><br><span class="line">        using (ExcelPackage package = new ExcelPackage(newFile))</span><br><span class="line">        &#123;</span><br><span class="line">            //在excel空文件添加新sheet</span><br><span class="line"></span><br><span class="line">            ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(&quot;message&quot;);</span><br><span class="line">            //添加列名</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 1].Value = &quot;姓名&quot;;</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 2].Value = &quot;职务&quot;;</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 3].Value = &quot;党龄&quot;;</span><br><span class="line"></span><br><span class="line">            worksheet.Cells[1, 4].Value = &quot;图片名&quot;;</span><br><span class="line">            </span><br><span class="line">            for (int i = 0; i &lt; newList.Count; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                string[] messages = newList[i].Split(&apos;|&apos;); //赵一|党员|1年|赵一.png| </span><br><span class="line">                string itemName = messages[0];</span><br><span class="line">                string itemWork = messages[1];</span><br><span class="line">                string itemYear = messages[2];</span><br><span class="line">                string imageName = messages[3];</span><br><span class="line">                //添加一行数据</span><br><span class="line"></span><br><span class="line">                int num = i + 2;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;A&quot;+ num].Value = itemName;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;B&quot; + num].Value = itemWork;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;C&quot; + num].Value = itemYear;</span><br><span class="line"></span><br><span class="line">                worksheet.Cells[&quot;D&quot; + num].Value = imageName;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            //保存excel</span><br><span class="line">            package.Save();</span><br><span class="line">            print(&quot;重写完成&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -178,29 +208,121 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">UGUI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">button</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">xlsx</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/01/unity-读取、更改excel（-xlsx类型）数据/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/05/01/unity-Input-touch多点触控/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          unity Input.touch多点触控
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/04/24/mysql命令行操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mysql命令行操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -223,8 +345,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

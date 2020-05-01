@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/7 | ZhangJun的Blog</title>
+  <title>unity Input.touch多点触控 | ZhangJun的Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ZhangJun的Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/07/index.html">
+  <meta name="description" content="处理多点触控问题，本文实现多点拖拽图片功能原文：https://blog.csdn.net/AnYuanLzh/article/details/18367941 前言 unity 使用post通信方式实现登录注册功能">
+<meta name="keywords" content="unity,Touch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unity Input.touch多点触控">
+<meta property="og:url" content="http://yoursite.com/2020/05/01/unity-Input-touch多点触控/index.html">
 <meta property="og:site_name" content="ZhangJun的Blog">
+<meta property="og:description" content="处理多点触控问题，本文实现多点拖拽图片功能原文：https://blog.csdn.net/AnYuanLzh/article/details/18367941 前言 unity 使用post通信方式实现登录注册功能">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-01T12:18:25.417Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhangJun的Blog">
+<meta name="twitter:title" content="unity Input.touch多点触控">
+<meta name="twitter:description" content="处理多点触控问题，本文实现多点拖拽图片功能原文：https://blog.csdn.net/AnYuanLzh/article/details/18367941 前言 unity 使用post通信方式实现登录注册功能">
   
     <link rel="alternative" href="/atom.xml" title="ZhangJun的Blog" type="application/atom+xml">
   
@@ -139,36 +144,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-unity-Input-touch多点触控" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/15/在unity中动态为button添加带参数的点击事件/" class="archive-article-date">
-  	<time datetime="2017-07-15T02:20:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/15/在unity中动态为button添加带参数的点击事件/">在unity中动态为button添加带参数的点击事件</a>
+    <h1 class="article-title" itemprop="name">
+      unity Input.touch多点触控
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/01/unity-Input-touch多点触控/" class="archive-article-date">
+  	<time datetime="2020-05-01T12:16:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>处理多点触控问题，本文实现多点拖拽图片功能<br>原文：<a href="https://blog.csdn.net/AnYuanLzh/article/details/18367941" target="_blank" rel="noopener">https://blog.csdn.net/AnYuanLzh/article/details/18367941</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p> unity 使用post通信方式实现登录注册功能</p>
+<a id="more"></a>
+<h2 id="Touch-管理"><a href="#Touch-管理" class="headerlink" title="Touch 管理"></a>Touch 管理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line">using UnityEngine.EventSystems;</span><br><span class="line">using UnityEngine.UI;</span><br><span class="line"></span><br><span class="line">public class MyTouch : MonoBehaviour &#123;</span><br><span class="line"></span><br><span class="line">    /// &lt;summary&gt;  </span><br><span class="line">    /// 定义的一个手指类  </span><br><span class="line">    /// &lt;/summary&gt;  </span><br><span class="line">    class MyFinger</span><br><span class="line">    &#123;</span><br><span class="line">        public int id = -1;</span><br><span class="line">        public Touch touch;</span><br><span class="line">        public Transform touchTrans;</span><br><span class="line">         </span><br><span class="line">        static private List&lt;MyFinger&gt; fingers = new List&lt;MyFinger&gt;();</span><br><span class="line">        /// &lt;summary&gt;  </span><br><span class="line">        /// 手指容器  </span><br><span class="line">        /// &lt;/summary&gt;  </span><br><span class="line">        static public List&lt;MyFinger&gt; Fingers</span><br><span class="line">        &#123;</span><br><span class="line">            get</span><br><span class="line">            &#123;</span><br><span class="line">                if (fingers.Count == 0)</span><br><span class="line">                &#123;</span><br><span class="line">                    for (int i = 0; i &lt; 5; i++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        MyFinger mf = new MyFinger();</span><br><span class="line">                        mf.id = -1;</span><br><span class="line">                        mf.touchTrans = null;</span><br><span class="line">                        fingers.Add(mf);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                return fingers;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 存储注册进来的Touch 物体</span><br><span class="line">    public List&lt;GameObject&gt; myTouchs;</span><br><span class="line">  </span><br><span class="line">    void Update()</span><br><span class="line">    &#123;</span><br><span class="line">        Touch[] touches = Input.touches;</span><br><span class="line">        </span><br><span class="line">        // 遍历所有的已经记录的手指  </span><br><span class="line">        // --掦除已经不存在的手指  </span><br><span class="line">        foreach (MyFinger mf in MyFinger.Fingers)</span><br><span class="line">        &#123;</span><br><span class="line">            if (mf.id == -1)</span><br><span class="line">            &#123;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            bool stillExit = false;</span><br><span class="line">            foreach (Touch t in touches)</span><br><span class="line">            &#123;</span><br><span class="line">                if (mf.id == t.fingerId)</span><br><span class="line">                &#123;</span><br><span class="line">                    stillExit = true;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 掦除  </span><br><span class="line">            if (stillExit == false)</span><br><span class="line">            &#123;</span><br><span class="line">                mf.id = -1;</span><br><span class="line">                mf.touchTrans = null;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        // 遍历当前的touches  </span><br><span class="line">        // --并检查它们在是否已经记录在AllFinger中  </span><br><span class="line">        // --是的话更新对应手指的状态，不是的加进去  </span><br><span class="line">        foreach (Touch t in touches)</span><br><span class="line">        &#123;</span><br><span class="line">            bool stillExit = false;</span><br><span class="line">            // 存在--更新对应的手指  </span><br><span class="line">            foreach (MyFinger mf in MyFinger.Fingers)</span><br><span class="line">            &#123;</span><br><span class="line">                if (t.fingerId == mf.id)</span><br><span class="line">                &#123;</span><br><span class="line">                    stillExit = true;</span><br><span class="line">                    mf.touch = t;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 不存在--添加新记录  </span><br><span class="line">            if (!stillExit)</span><br><span class="line">            &#123;</span><br><span class="line">                foreach (MyFinger mf in MyFinger.Fingers)</span><br><span class="line">                &#123;</span><br><span class="line">                    if (mf.id == -1)</span><br><span class="line">                    &#123;</span><br><span class="line">                        mf.id = t.fingerId;</span><br><span class="line">                        mf.touch = t;</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 记录完手指信息后，就是响应相应和状态记录了  </span><br><span class="line">        for (int i = 0; i &lt; MyFinger.Fingers.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            MyFinger mf = MyFinger.Fingers[i];</span><br><span class="line">            if (mf.id != -1)</span><br><span class="line">            &#123;</span><br><span class="line">                if (mf.touchTrans==null)</span><br><span class="line">                &#123;</span><br><span class="line">                    mf.touchTrans = CheckGuiRaycastObjects(mf.touch.position);</span><br><span class="line">                &#125;</span><br><span class="line">               // Transform hitItem = CheckGuiRaycastObjects(mf.touch.position);</span><br><span class="line">               </span><br><span class="line">                if (mf.touchTrans != null)</span><br><span class="line">                &#123;</span><br><span class="line">                   // Vector3 newpos = new Vector3(mf.touch.position.x - Screen.width / 2, mf.touch.position.y - Screen.height / 2, hitItem.localPosition.z);</span><br><span class="line"></span><br><span class="line">                    if (mf.touch.phase == TouchPhase.Began)</span><br><span class="line">                    &#123;</span><br><span class="line">                        // print(&quot;Start&quot;);</span><br><span class="line">                        // marks[i].SetActive(true);</span><br><span class="line">                        // aaa.position = GetWorldPos(mf.touch.position);</span><br><span class="line"></span><br><span class="line">                        mf.touchTrans.GetComponent&lt;TouchItem&gt;().OnTouchBegin(mf.touch);</span><br><span class="line">                        </span><br><span class="line">                       // hitItem.localPosition = newpos;</span><br><span class="line">                    &#125;</span><br><span class="line">                    else if (mf.touch.phase == TouchPhase.Moved)</span><br><span class="line">                    &#123;</span><br><span class="line">                        // hitItem.localPosition = newpos;</span><br><span class="line">                        mf.touchTrans.GetComponent&lt;TouchItem&gt;().OnTouchDrag(mf.touch);</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                    else if (mf.touch.phase == TouchPhase.Ended)</span><br><span class="line">                    &#123;</span><br><span class="line">                        //marks[i].SetActive(false);</span><br><span class="line">                        // hitItem.localPosition = newpos;</span><br><span class="line">                        mf.touchTrans.GetComponent&lt;TouchItem&gt;().OnTouchEnd();</span><br><span class="line">                        mf.id = -1;</span><br><span class="line">                        mf.touchTrans = null;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    EventSystem eventSystem;</span><br><span class="line">    public GraphicRaycaster RaycastInCanvas;//Canvas上有这个组件</span><br><span class="line">    Transform CheckGuiRaycastObjects(Vector3 point)</span><br><span class="line">    &#123;</span><br><span class="line">        PointerEventData eventData = new PointerEventData(eventSystem);</span><br><span class="line">        eventData.pressPosition = point;</span><br><span class="line">        eventData.position = point;</span><br><span class="line">        List&lt;RaycastResult&gt; list = new List&lt;RaycastResult&gt;();</span><br><span class="line">        RaycastInCanvas.Raycast(eventData, list);</span><br><span class="line">        Transform thistrnas = null;</span><br><span class="line">        if (list.Count &gt; 0)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            bool isEnable = true;</span><br><span class="line">            for (int i = 0; i &lt; list.Count; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                if (list[i].gameObject.name==&quot;Image&quot;)</span><br><span class="line">                &#123;</span><br><span class="line">                    isEnable = false;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if (isEnable)</span><br><span class="line">            &#123;</span><br><span class="line">                for (int i = 0; i &lt; list.Count; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    if (list[i].gameObject.tag == &quot;Player&quot;)</span><br><span class="line">                    &#123;</span><br><span class="line">                            thistrnas = list[i].gameObject.transform;</span><br><span class="line">                       </span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return thistrnas;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Vector3 GetWorldPos(Vector2 screenPos)</span><br><span class="line">    &#123;</span><br><span class="line">        return Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, Camera.main.nearClipPlane + 10));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="单个需要拖拽的物体组件"><a href="#单个需要拖拽的物体组件" class="headerlink" title="单个需要拖拽的物体组件"></a>单个需要拖拽的物体组件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">using System.Collections;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using UnityEngine;</span><br><span class="line"></span><br><span class="line">public class TouchItem : MonoBehaviour &#123;</span><br><span class="line">    </span><br><span class="line">   public bool isBegin = false;</span><br><span class="line">    Vector3 newpos;</span><br><span class="line"></span><br><span class="line">    int fingerIndex = -1;</span><br><span class="line"></span><br><span class="line">    MyTouch myTouch;</span><br><span class="line"></span><br><span class="line">    Vector2 firstMousePos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    //鼠标拖拽的位置</span><br><span class="line"></span><br><span class="line">    Vector2 secondMousePos = Vector3.zero;</span><br><span class="line">    Vector3 offsetPos = Vector3.zero;</span><br><span class="line"></span><br><span class="line">    private void Awake()</span><br><span class="line">    &#123;</span><br><span class="line">        myTouch = GameObject.FindObjectOfType&lt;MyTouch&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void Start()</span><br><span class="line">    &#123;</span><br><span class="line">        myTouch.myTouchs.Add(this.gameObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  public void OnTouchBegin(Touch  mytouch) &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">        //    fingerIndex = index;</span><br><span class="line">            isBegin = true;</span><br><span class="line">       </span><br><span class="line">            newpos = new Vector3(mytouch.position.x, mytouch.position.y, transform.localPosition.z);</span><br><span class="line">       </span><br><span class="line">            firstMousePos = newpos;</span><br><span class="line">           &#125;</span><br><span class="line">          catch </span><br><span class="line">           &#123;</span><br><span class="line">              isBegin =false;</span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   public void OnTouchDrag(Touch mytouch) &#123;</span><br><span class="line">        if (isBegin)</span><br><span class="line">        &#123;</span><br><span class="line">              try</span><br><span class="line">              &#123;</span><br><span class="line">            print(&quot;move&quot;);</span><br><span class="line">                newpos = new Vector3(mytouch.position.x, mytouch.position.y, transform.localPosition.z);</span><br><span class="line"></span><br><span class="line">                secondMousePos = newpos;</span><br><span class="line">                offsetPos = secondMousePos - firstMousePos;</span><br><span class="line"></span><br><span class="line">                float x = transform.localPosition.x;</span><br><span class="line"></span><br><span class="line">                float y = transform.localPosition.y;</span><br><span class="line">                x = x + offsetPos.x; y = y + offsetPos.y;</span><br><span class="line"></span><br><span class="line">                transform.localPosition = new Vector3(x, y, transform.localPosition.z);</span><br><span class="line">                firstMousePos = secondMousePos;</span><br><span class="line">            &#125;</span><br><span class="line">            catch </span><br><span class="line">            &#123;</span><br><span class="line">                isBegin = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   public void OnTouchEnd() &#123;</span><br><span class="line">        isBegin = false;</span><br><span class="line">        fingerIndex = -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><p>将需要touch的image挂载TouchItem脚本<br>并将image的tag设置为 Player。 将MyTouch脚本挂载在canvas上 </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -178,29 +208,112 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">UGUI</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">button</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Touch</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/01/unity-Input-touch多点触控/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/05/01/unity-读取、更改excel（-xlsx类型）数据/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">unity 读取、更改excel（.xlsx类型）数据</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -223,8 +336,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

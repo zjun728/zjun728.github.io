@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ZhangJun的Blog">
 <meta property="og:description" content="前言unity 对本地文件的一些操作，包括:创建文件夹，加载文件夹内图片，删除文件夹文件，等">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-05T15:00:21.419Z">
+<meta property="og:updated_time" content="2020-05-01T11:52:55.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unity对本地文件的相关操作">
 <meta name="twitter:description" content="前言unity 对本地文件的一些操作，包括:创建文件夹，加载文件夹内图片，删除文件夹文件，等">
@@ -179,7 +179,15 @@
 <h1 id="六、得到文件夹下的所有文件的路径"><a href="#六、得到文件夹下的所有文件的路径" class="headerlink" title="六、得到文件夹下的所有文件的路径"></a>六、得到文件夹下的所有文件的路径</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">string dirPath = <span class="string">"c:/Users/Administrator/Desktop/TestFolder"</span>;</span><br><span class="line"></span><br><span class="line"> string[] dirs = Directory.GetFiles(dirPath);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">for</span> (int j = <span class="number">0</span>; j &lt; dirs.Length; j++)</span><br><span class="line"> &#123;</span><br><span class="line">     print(dirs[j]);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h1 id="七、删除文件夹中图片"><a href="#七、删除文件夹中图片" class="headerlink" title="七、删除文件夹中图片"></a>七、删除文件夹中图片</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string imagePath = <span class="string">"c:/Users/Administrator/Desktop/TestFolder/testPicture.jpg"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (File.Exists(imagePath))</span><br><span class="line">&#123;</span><br><span class="line">    File.Delete(imagePath);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<hr>
+<p>八、得到当前文件夹根目录下所有的文件夹(子文件夹内的内容不会输出)或文件名字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 得到当前文件夹根目录下所有的文件夹(子文件夹内的内容不会输出)或文件名字</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;param name="path"&gt;&lt;/param&gt;</span></span><br><span class="line"></span><br><span class="line">public List&lt;string&gt; GetFolderRootFileName(string path)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    List&lt;string&gt; fileNameList = <span class="keyword">new</span> List&lt;string&gt;();</span><br><span class="line"></span><br><span class="line">    string[] directoryEntries = Directory.GetFileSystemEntries(path);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// DirectoryInfo dir = new DirectoryInfo(dirPath);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// FileInfo[] files = dir.GetFiles("*", SearchOption.TopDirectoryOnly); //获取所有文件信息       </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; directoryEntries.Length; i++)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        string fileName = directoryEntries[i].Split(<span class="string">'\\'</span>)[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (fileName.EndsWith(<span class="string">".meta"</span>))</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fileNameList.Add(fileName);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fileNameList;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>九、得到当前文件夹下所有的子文件夹内的所有文件的路径（包括子文件夹文件）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/// 得到当前文件夹下所有的子文件夹内的所有文件的路径（包括子文件夹文件）FileInfo.FullName/FileInfo.Name</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/// &lt;param name="path"&gt;&lt;/param&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/// &lt;returns&gt;&lt;/returns&gt;</span></span><br><span class="line"></span><br><span class="line">public List&lt;FileInfo&gt; GetAllFileinfoFromPath(string path)</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line"></span><br><span class="line">      List&lt;FileInfo&gt; fileinfo= <span class="keyword">new</span> List&lt;FileInfo&gt;();</span><br><span class="line"></span><br><span class="line">      DirectoryInfo dir = <span class="keyword">new</span> DirectoryInfo(path);</span><br><span class="line"></span><br><span class="line">      FileInfo[] files = dir.GetFiles(<span class="string">"*"</span>, SearchOption.AllDirectories); <span class="comment">//获取所有文件信息       </span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; files.Length; i++)</span><br><span class="line"></span><br><span class="line">      &#123;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (files[i].Name.EndsWith(<span class="string">".meta"</span>))</span><br><span class="line"></span><br><span class="line">          &#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//  print(files[i].FullName); //文件路径</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//  print(files[i].Name);    //文件名字</span></span><br><span class="line"></span><br><span class="line">          fileinfo.Add(files[i]);</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> fileinfo;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>十、将文件夹某一文件复制到另一个文件夹中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// 文件复制</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;param name="targetDir"==要复制到的文件夹&gt;  &lt;/param&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/// &lt;param name="fileName"==要复制的文件名&gt;&lt;/param&gt;</span></span><br><span class="line"></span><br><span class="line">public <span class="keyword">static</span> <span class="keyword">void</span> CopyDirectory(string targetDir,string fileName)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//起始文件夹</span></span><br><span class="line"></span><br><span class="line">    string fromDir= <span class="string">"C:/Users/Administrator/Desktop/zhang/unity外部配置"</span>;</span><br><span class="line"></span><br><span class="line">    DirectoryInfo source = <span class="keyword">new</span> DirectoryInfo(fromDir);</span><br><span class="line"></span><br><span class="line">    DirectoryInfo target = <span class="keyword">new</span> DirectoryInfo(targetDir);</span><br><span class="line"></span><br><span class="line">    FileInfo[] files = source.GetFiles();</span><br><span class="line"></span><br><span class="line">    File.Copy(fromDir+<span class="string">"/"</span>+ fileName, Path.Combine(targetDir, fileName), <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -428,10 +436,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql命令行操作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">unity</a>
               </li>
              
@@ -440,11 +444,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">PlayerPrefs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql命令行操作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">post</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">json</a>
+                <a href="javascript:void(0)" class="js-tag color1">Touch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">xlsx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,10 +480,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">C#</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">UGUI</a>
               </li>
              
@@ -468,11 +488,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xml</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">PlayerPrefs</a>
+                <a href="javascript:void(0)" class="js-tag color3">C#</a>
               </li>
              
               <li class="article-tag-list-item">
